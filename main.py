@@ -9,12 +9,10 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 @socketio.on('connect')
 def get_clients():
-    print('connect')
     join_room('ZotBoard')
 
 @socketio.on('message')
 def send_drawing(drawing_msg):
-    print('message')
     send(drawing_msg, room='ZotBoard')
     
 if __name__ == '__main__':
